@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Children's Learning</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background: linear-gradient(to bottom, #80e0ff, #c9ffcf);
+    }
+
+    .hero {
+      text-align: center;
+      padding: 100px 20px;
+      color: white;
+      background: linear-gradient(135deg, #ff6f61 30%, #ffcc00);
+      border-bottom-left-radius: 50% 20%;
+      border-bottom-right-radius: 50% 20%;
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+      color: #ffffff;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+    }
+
+    .hero p {
+      font-size: 1.5rem;
+      margin-bottom: 40px;
+      color: #ffe082;
+    }
+
+    .auth-buttons {
+      margin-top: 30px;
+    }
+
+    .auth-buttons button {
+      background-color: #FF4081;
+      color: white;
+      padding: 15px 25px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin: 10px;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+
+    .auth-buttons button:hover {
+      background-color: #FF80AB;
+      transform: scale(1.1);
+    }
+
+    .hero img {
+      width: 300px;
+      height: auto;
+      border-radius: 15px;
+      margin-top: 30px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    }
+
+    .help-button {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background-color: #8e44ad;
+      color: white;
+      border: none;
+      padding: 15px 25px;
+      font-size: 18px;
+      font-weight: bold;
+      border-radius: 30px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+
+    .help-button:hover {
+      background-color: #9b59b6;
+      transform: scale(1.1);
+    }
+ .image-container {
+        flex-direction: column;
+      }
+
+      .image-container img {
+        width: 350px;
+      }
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero p {
+        font-size: 1.2rem;
+      }
+
+      .auth-buttons button {
+        padding: 12px 20px;
+        font-size: 1rem;
+      }
+
+      .help-button {
+        bottom: 15px;
+        left: 15px;
+        font-size: 16px;
+      }
+
+      .hero img {
+        width: 200px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <h1>Welcome to Interactive Children's Learning</h1>
+    <p>Fun, engaging, and educational activities for kids of all ages!</p>
+    <div class="auth-buttons">
+      <button onclick="location.href='login.jsp'">Log In</button>
+      <button onclick="location.href='registration_page.html'">Register</button>
+    </div>
+
+    <div class="image-container">
+        <img src="https://tse3.mm.bing.net/th?id=OIP.8ILOYFotXoXS7JFb05L9_wHaEO&pid=Api&P=0&h=180" alt="Children's Learning Image">
+      <img src="https://tse4.mm.bing.net/th?id=OIP.mK2yOoLuGgZBwdR293_C0AHaFF&pid=Api&P=0&h=180" alt="Learning Image 1">
+      
+      <img src="https://tse4.mm.bing.net/th?id=OIP.FScyPsRiixWI7Qd-NTqDUQHaEc&pid=Api&P=0&h=180" alt="Learning Image 2">
+    </div>
+  </div>
+  
+</body>
+</html>

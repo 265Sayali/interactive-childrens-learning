@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Add this line here -->
+    <title>User Registration</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to bottom, #80e0ff, #c9ffcf);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .registration-container {
+            background-color: #fff;
+            padding: 30px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            width: 400px;
+        }
+
+        .registration-container h1 {
+            text-align: center;
+            color: #FF6F61;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            font-size: 1rem;
+            color: #333;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .form-group input[type="number"] {
+            -webkit-appearance: none;
+            -moz-appearance: textfield;
+        }
+
+        .form-group button {
+            width: 100%;
+            padding: 10px;
+            background-color: #FF6F61;
+            color: white;
+            border: none;
+            font-size: 1.1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .form-group button:hover {
+            background-color: #FF8A80;
+        }
+
+        .form-group input[type="submit"] {
+            background-color: #4CAF50;
+            font-weight: bold;
+        }
+
+        .form-group input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .form-group button:focus,
+        .form-group input:focus {
+            outline: none;
+            border-color: #FF6F61;
+        }
+
+        .form-group input[type="text"]:invalid,
+        .form-group input[type="email"]:invalid {
+            border-color: red;
+        }
+    </style>
+    <script>
+        function sendOTP() {
+            var email = document.getElementById("email").value;
+            if (email == "") {
+                alert("Please enter your email.");
+                return;
+            }
+
+            alert("Sending OTP to: " + email);
+            var obj = new XMLHttpRequest();
+            if (obj) {
+                try {
+                    obj.open("GET", "sendotp.jsp?a=" + email, true);
+                    obj.send(null);
+                    obj.onreadystatechange = function () {
+                        if (obj.readyState == 4 && obj.status == 200) {
+                            document.getElementById("otpHidden").value = obj.responseText; // Assuming response is OTP
+                        }
+                    };
+                } catch (e) {
+                    alert(e);
+                }
+            }
+        }
+
+        function matchOTP() {
+            var otp = document.getElementById("otp").value;
+            var otp1 = document.getElementById("otpHidden").value;
+            var ot = otp.trim();
+            var ot1 = otp1.trim();
+            if (ot != ot1) {
+                document.getElementById("otp").value = "";
+                alert("OTP does not match. Please try again.");
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="registration-container">
+        <h1>Register</h1>
+        <form action="Reg_Server.jsp" method="POST">
+            <!-- Full Name -->
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" name="name" id="name" required placeholder="Enter your full name">
+            </div>
+
+            <!-- Age -->
+            <div class="form-group">
+                <label for="age">Age</label>
+                <input type="number" name="age" id="age" required placeholder="Enter your age">
+            </div>
+
+            <!-- Parent's Name -->
+            <div class="form-group">
+                <label for="parents">Parent's Name</label>
+                <input type="text" name="parents" id="parents" required placeholder="Enter your parent's name">
+            </div>
+
+            <!-- Mobile Number -->
+            <div class="form-group">
+                <label for="mobile">Mobile Number</label>
+                <input type="number" name="mobile" id="mobile" required placeholder="Enter your mobile number">
+            </div>
+
+            <!-- Email Address -->
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" name="email" id="email" required placeholder="Enter your email">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" required placeholder="Enter your password">
+            </div>
+
+            <!-- Confirm Password -->
+            <div class="form-group">
+                <label for="confirm_password">Confirm Password</label>
+                <input type="password" name="confirm_password" id="confirm_password" required placeholder="Confirm your password">
+            </div>
+
+          
+
+            <!-- Submit Button -->
+            <div class="form-group">
+                <input type="submit" value="Register" onclick="matchOTP()">
+            </div>
+        </form>
+    </div>
+</body>
+</html>
